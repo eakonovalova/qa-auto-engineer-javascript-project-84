@@ -1,0 +1,15 @@
+---
+name: Elizaveta Konovalova
+job: QA Engineer
+level: senior
+email: ilona@hexlet.io
+description: |
+  Я Лиза, я QA Engineer
+
+  Текст может быть написан в несколько абзацев
+skills:
+  - функциональное тестирование
+  - написание багрепортов
+  - автоматизация тестирования
+  - тестирование требований
+  - английский язык B2
