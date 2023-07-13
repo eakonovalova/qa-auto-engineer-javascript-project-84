@@ -9,23 +9,23 @@
 
 - summary: |
     Проверка навигации
-  status: 
+  status: pass
 
 - summary: |
     Проверка футера
-  status: 
+  status: pass
 
 - summary: |
     Проверка страниц в каталоге
-  status: 
+  status: fail
 
 - summary: |
     Нельзя перейти кнопками вперед-назад на несуществующую страницу
-  status: 
+  status: fail
 
 - summary: |
     Проверка карточек в каталоге
-  status: 
+  status: fail
 
 - summary: |
     Проверка фильтров в каталоге
@@ -33,19 +33,19 @@
 
 - summary: |
     Добавление товаров в корзину
-  status: 
+  status: pass
 
 - summary: |
     Проверка перехода к карточке товара
-  status: 
+  status: pass
 
 - summary: |
     Проверка отрисовки экрана товара
-  status: 
+  status: fail
 
 - summary: |
     Добавление товаров в корзину со страницы товара и обновление экрана корзины
-  status: 
+  status: fail
 
 - summary: |
     Нельзя оформить пустой заказ и очищение корзины
@@ -57,35 +57,35 @@
   
 - summary: |
     Обновление корзины
-  status: 
+  status: fail
   
 - summary: |
     Удаление товара из корзины
-  status: 
+  status: pass
 
 - summary: |
     Попап с товарами работает верно
-  status: 
+  status: fail
 
 - summary: |
     Тестирование верстки каталог @visual
-  status: 
+  status: fail
   
 - summary: |
     Тестирование верстки корзина @visual
-  status: 
+  status: fail
   
 - summary: |
     Тестирование верстки экран товара @visual
-  status: 
+  status: fail
 
 - summary: |
     Обработка ошибок сети и бекенда
-  status: 
+  status: fail
 
 - summary: |
     Тестирование локализации
-  status: 
+  status: fail
 
 - summary: |
     Тестирование нагрузки
@@ -93,11 +93,11 @@
 
 - summary: |
     Тестирование удобства использования 
-  status: 
+  status: fail
 
 - summary: |
     Тестирование скорости работы
-  status: 
+  status: fail
 
 - summary: |
     Тестирование кроссбраузерности
