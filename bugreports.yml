@@ -1,16 +1,253 @@
 ---
 - summary: |
-    Не работает восстановление пароля
+    Сайт не адаптирован под мобилку
   environment: |
-    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
-    ОС Linux 22.04
+    Google Chrome
+    hexlet-products-store.vercel.app
   steps-to-reproduce: |
-    1. Зайти на страницу логина https://runit.hexlet.ru/login
-    2. Нажать ссылку "не помню пароль"
-    3. Ввести почту и нажать "Восстановить пароль"
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Поставить ширину экрана меньше 992px или включить эмуляцию мобилки
   expected-result: |
-    На странице формы будет сообщение с просьбой проверить почту.
-    На почту придет письмо со ссылкой на восстановление пароля.
+    Верстка перестраивается под меньшую ширину
   actual-result: |
-    На странице ничего не происходит.
-    В консоли браузера в Devtools выводится почта
+    Едет верстка страниц - фильтров, корзины и тд
+
+- summary: |
+    Едет верстка карточек товаров 
+  environment: |
+    Google Chrome
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Поставить ширину экрана около 1250 
+  expected-result: |
+    Верстка перестраивается под меньшую ширину
+  actual-result: |
+    Едет верстка карточек с длинным описанием - кнопка Добавить вываливается
+
+- summary: |
+    Можно перейти вперед-назад на несуществующие страницы
+  environment: |
+    Google Chrome
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Поставить любой фильтр, чтобы стало мало товаров в списке
+    3. Перейти вперед или назад
+  expected-result: |
+    Нельзя перейти вперед-назад если на этих страницах нет товаров
+  actual-result: |
+    Можно
+    
+- summary: |
+    Можно перейти вперед-назад на несуществующие страницы
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Поставить любой фильтр, чтобы стало мало товаров в списке
+    3. Перейти вперед или назад
+  expected-result: |
+    Нельзя перейти вперед-назад если на этих страницах нет товаров
+  actual-result: |
+    Можно
+
+- summary: |
+    Битая картинка английского в навигации
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. В навигации нажать на выбор языка
+  expected-result: |
+    Британский/Американский флаг для английского
+  actual-result: |
+    Битая иконка английского в навигации
+
+- summary: |
+    При переключении на русский цены и описание товара не изменяются
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. В навигации переключиться на русскую версию сайта
+  expected-result: |
+    Доллары переключатся на рубли
+    Описание товара отображается на русском
+  actual-result: |
+    Цены остаются в долларах
+    Описания остаются на английском (возможно это не критично)
+
+- summary: |
+    Обновление страницы сбрасывает настройки локализации
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. В навигации переключиться на версию сайта на другом языке
+    3. Обновить страницу
+  expected-result: |
+    Обновление страницы не сбрасывает настройки локализации
+  actual-result: |
+    Обновление страницы сбрасывает настройки локализации
+
+- summary: |
+    Поправить картинки в контенте товаров
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Проверить картинки по товарам
+  expected-result: |
+    Все картинки масштабированы ровно по 100%, подгружаются в jpg jpeg или webp
+  actual-result: |
+    есть тяжелые форматы png, пример https://i.dummyjson.com/data/products/21/thumbnail.png
+    есть растянутые картинки, пример https://hexlet-products-store.vercel.app/products/11
+
+- summary: |
+    Поправить картинки в контенте товаров
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Проверить картинки по товарам
+  expected-result: |
+    Все картинки масштабированы ровно по 100%, подгружаются в jpg jpeg или webp
+  actual-result: |
+    есть тяжелые форматы png, пример https://i.dummyjson.com/data/products/21/thumbnail.png
+    есть растянутые картинки, пример https://hexlet-products-store.vercel.app/products/11
+
+- summary: |
+    Оптимизировать загрузку (кроме картинок)
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Проверить скорость загрузки (можно лайтхаусом)
+  expected-result: |
+    Reduce unused CSS
+    Reduce unused JavaScript
+    Скрыть Create React App
+  actual-result: |
+    Не реализовано сейчас
+
+- summary: |
+    Оптимизировать загрузку (кроме картинок)
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Проверить скорость загрузки (можно лайтхаусом)
+  expected-result: |
+    Reduce unused CSS
+    Reduce unused JavaScript
+    Скрыть Create React App
+  actual-result: |
+    Не реализовано сейчас
+
+- summary: |
+    Убрать возможность ввода спецсимволов в поиск
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Ввести в поиск запрос sql или код
+  expected-result: |
+    Нельзя вводить спецсимволы для запросов
+  actual-result: |
+    Можно вводить что угодно
+
+- summary: |
+    Добавить обработку медленного соединения и ошибок сети
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Поставить медленный тротлинг, проверить как грузится страница
+    3. Вернуть тротлинг на нормальный, заблокировать в нетворке запрос /products и обновить страницу
+  expected-result: |
+    Медленный интернет и ошибки апи обрабатываются
+    Для медленной загрузки крутим спиннер на страницах товара и каталога
+    Для ошибок от апи пишем "Попробуй позже"
+  actual-result: |
+    Страница грузится некрасиво, нет обработки ошибок от апи
+
+- summary: |
+    Верстка галереи с фото товара едет на разных фотках
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/products/95
+    2. Сравнить с https://hexlet-products-store.vercel.app/products/6
+  expected-result: |
+    Галерея с фото товаров везде одного формата и размера
+  actual-result: |
+    Размер галереи зависит от загруженных фото
+
+- summary: |
+    Верстка галереи с фото товара едет на разных фотках
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/products/95
+    2. Сравнить с https://hexlet-products-store.vercel.app/products/6
+  expected-result: |
+    Галерея с фото товаров везде одного формата и размера
+  actual-result: |
+    Размер галереи зависит от загруженных фото
+
+- summary: |
+    Ошибки спамят в консоль
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app
+    2. Проверить консоль
+  expected-result: |
+    Нет ошибок в консолл
+  actual-result: |
+    Ошибки из консоли site/static/css/random.css:1
+    Failed to load resource: net::ERR_NAME_NOT_RESOLVED
+    site/static/js/author.js:1
+    Failed to load resource: net::ERR_NAME_NOT_RESOLVED
+
+- summary: |
+    Добавить в манифест значок
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app
+    2. Проверить манифест
+  expected-result: |
+    Manifest do have a maskable icon
+  actual-result: |
+    Manifest doesn't have a maskable icon
+
+- summary: |
+    Добавить Accessibility практики
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app
+    2. Проверить expected-result ниже
+  expected-result: |
+    Background and foreground colors do not have a sufficient contrast ratio.
+    Lists do not contain only <li> elements and script supporting elements (<script> and <template>).
+    Heading elements are not in a sequentially-descending order
+  actual-result: |
+    Не реализовано сейчас
