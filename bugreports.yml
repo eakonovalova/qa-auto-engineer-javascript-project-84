@@ -40,6 +40,19 @@
     Список брендов не интуитивно листается вместе с товарами
 
 - summary: |
+    Сделать возможным ввод только целых положительных чисел в фильтр цены
+  environment: |
+    Google Chrome
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. ввести в фильтр цены отрицательное число или e
+  expected-result: |
+    Возможен ввод только целых положительных чисел в фильтр цены
+  actual-result: |
+    Можно ввести отрицательные числа, +-. и букву e
+
+- summary: |
     Переработать фильтры по брендам и категориям
   environment: |
     Google Chrome
@@ -139,6 +152,19 @@
     Обновление страницы сбрасывает настройки локализации
 
 - summary: |
+    Нет локализации футера
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. В навигации переключиться на версию сайта на другом языке
+  expected-result: |
+    Футер переведен
+  actual-result: |
+    Нет перевода в футере
+
+- summary: |
     Поправить картинки в контенте товаров
   environment: |
     Google Chrome 
@@ -226,7 +252,7 @@
     Страница грузится некрасиво, нет обработки ошибок от апи
 
 - summary: |
-    Верстка галереи с фото товара едет на разных фотках
+    Верстка в галерее с фото товара в карточке товара едет на разных фотках
   environment: |
     Google Chrome 
     hexlet-products-store.vercel.app
@@ -239,17 +265,19 @@
     Размер галереи зависит от загруженных фото
 
 - summary: |
-    Верстка галереи с фото товара едет на разных фотках
+    Верстка в списке товаров в корзине и в попапе едет из-за длины названия товара
   environment: |
     Google Chrome 
     hexlet-products-store.vercel.app
   steps-to-reproduce: |
-    1. Зайти на страницу https://hexlet-products-store.vercel.app/products/95
-    2. Сравнить с https://hexlet-products-store.vercel.app/products/6
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Добавить несколько товаров с разной длиной названия в корзину
+    3. Перейти в корзину и проверить список товаров в корзине и попапе с оформлением заказа
   expected-result: |
-    Галерея с фото товаров везде одного формата и размера
+    Выравнивание для столбцов количества, цены и тд не изменяется из за длины названия
+    Есть предложение кнопку Удалить также убрать в самый правый столбец
   actual-result: |
-    Размер галереи зависит от загруженных фото
+    Едет выравнивание столбцов из за длины названия
 
 - summary: |
     Ошибки спамят в консоль
@@ -260,7 +288,7 @@
     1. Зайти на страницу https://hexlet-products-store.vercel.app
     2. Проверить консоль
   expected-result: |
-    Нет ошибок в консолл
+    Нет ошибок в консоли
   actual-result: |
     Ошибки из консоли site/static/css/random.css:1
     Failed to load resource: net::ERR_NAME_NOT_RESOLVED
