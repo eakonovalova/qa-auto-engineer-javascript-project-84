@@ -53,6 +53,19 @@
     Можно ввести отрицательные числа, +-. и букву e
 
 - summary: |
+    Убрать возможность ввода спецсимволов в поиск по названию товара
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Ввести в поиск запрос sql или код
+  expected-result: |
+    Нельзя вводить спецсимволы для запросов
+  actual-result: |
+    Можно вводить что угодно
+    
+- summary: |
     Переработать фильтры по брендам и категориям
   environment: |
     Google Chrome
@@ -77,8 +90,9 @@
     2. Проверить фильтры по брендам
   expected-result: |
     Если есть более 10 брендов - их скрываем под ссылку "Все бренды"
+    Если брендов более 10 и раскрыт кат - даем искать по названию или части названия бренда
   actual-result: |
-    В списке висят все бренды
+    В списке висят все бренды. Неудобно
 
 - summary: |
     Можно перейти вперед-назад на несуществующие страницы
@@ -179,18 +193,36 @@
     есть растянутые картинки, пример https://hexlet-products-store.vercel.app/products/11
 
 - summary: |
-    Поправить картинки в контенте товаров
+    Поправить описания в контенте товаров
   environment: |
     Google Chrome 
     hexlet-products-store.vercel.app
   steps-to-reproduce: |
     1. Зайти на страницу https://hexlet-products-store.vercel.app/
-    2. Проверить картинки по товарам
+    2. Проверить описания по товарам
   expected-result: |
-    Все картинки масштабированы ровно по 100%, подгружаются в jpg jpeg или webp
+    У товаров есть описания. Они содержат смысловую нагрузку, нормально отформатированы.
   actual-result: |
-    есть тяжелые форматы png, пример https://i.dummyjson.com/data/products/21/thumbnail.png
-    есть растянутые картинки, пример https://hexlet-products-store.vercel.app/products/11
+    Некоторые описания не закончены https://hexlet-products-store.vercel.app/products/2
+    Некоторые описания содержат спецсимволы там, где это не нужно https://hexlet-products-store.vercel.app/products/16
+
+- summary: |
+    Поправить названия в контенте товаров
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Проверить названия по товарам
+  expected-result: |
+    У товаров есть названия. Они содержат только латиницу, цифры и -
+    Начинаются с большой буквы.
+    Если у товара есть вес или количество в упаковке - оно идет после основного названия.
+    Пример Something-something 500g
+  actual-result: |
+    Некоторые названия не по формату 
+    https://hexlet-products-store.vercel.app/products/53
+    https://hexlet-products-store.vercel.app/products/21
 
 - summary: |
     Оптимизировать загрузку (кроме картинок)
@@ -206,34 +238,6 @@
     Скрыть Create React App
   actual-result: |
     Не реализовано сейчас
-
-- summary: |
-    Оптимизировать загрузку (кроме картинок)
-  environment: |
-    Google Chrome 
-    hexlet-products-store.vercel.app
-  steps-to-reproduce: |
-    1. Зайти на страницу https://hexlet-products-store.vercel.app/
-    2. Проверить скорость загрузки (можно лайтхаусом)
-  expected-result: |
-    Reduce unused CSS
-    Reduce unused JavaScript
-    Скрыть Create React App
-  actual-result: |
-    Не реализовано сейчас
-
-- summary: |
-    Убрать возможность ввода спецсимволов в поиск
-  environment: |
-    Google Chrome 
-    hexlet-products-store.vercel.app
-  steps-to-reproduce: |
-    1. Зайти на страницу https://hexlet-products-store.vercel.app/
-    2. Ввести в поиск запрос sql или код
-  expected-result: |
-    Нельзя вводить спецсимволы для запросов
-  actual-result: |
-    Можно вводить что угодно
 
 - summary: |
     Добавить обработку медленного соединения и ошибок сети
@@ -263,6 +267,33 @@
     Галерея с фото товаров везде одного формата и размера
   actual-result: |
     Размер галереи зависит от загруженных фото
+
+- summary: |
+    Хештег со страницы товара не ведет никуда
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/products/21
+    2. Нажать на хештег
+  expected-result: |
+    Происходит переход куда то (к категории?)
+  actual-result: |
+    Добавляется пустой якорь в url но не ведет никуда
+
+- summary: |
+    Остаток товара на складе не меняется при добавлении товара в корзину
+  environment: |
+    Google Chrome 
+    hexlet-products-store.vercel.app
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/products/21
+    2. Добавить товар в корзину
+  expected-result: |
+    Остаток товара подписан и обновляется при добавлении в корзину
+  actual-result: |
+    Можно добавить товаров в корзину больше чем есть в магазине т.к. количество в остатке не меняется
+    Не понятно что это за цифра, тк не подписано что это остаток
 
 - summary: |
     Верстка в списке товаров в корзине и в попапе едет из-за длины названия товара
